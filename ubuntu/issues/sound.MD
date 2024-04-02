@@ -8,6 +8,7 @@ Sometimes, simply restarting PulseAudio can resolve the issue. You can do this b
 2. Run the following command to kill PulseAudio:
 
 `pulseaudio -k`
+
 3. Then, start PulseAudio again:
 
 `pulseaudio --start`
@@ -20,6 +21,7 @@ If the error persists, there may be multiple instances of PulseAudio trying to s
 2. List all PulseAudio processes:
 
 `ps aux | grep pulseaudio`
+
 3. If you see multiple instances, kill them using the kill command followed by the process IDs (PIDs). Then, restart PulseAudio as shown above.
 
 ### 3. Delete the PulseAudio Configuration
@@ -30,6 +32,7 @@ Sometimes, corrupted PulseAudio configuration files can cause issues. You can re
 2. Remove the configuration files:
 
 `rm -r ~/.config/pulse/*`
+
 3. Restart PulseAudio:
 
 ```
@@ -45,9 +48,11 @@ Ensure the correct audio output device (sink) is selected and not muted:
 2. List all available sinks:
 
 `pactl list short sinks`
+
 3. Check the default sink and ensure it's correct. You can change the default sink with:
 
 `pactl set-default-sink SINK_NAME_OR_INDEX`
+
 4. Also, ensure the sink is not muted:
 
 `pactl set-sink-mute SINK_NAME_OR_INDEX 0`
